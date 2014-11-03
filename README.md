@@ -15,7 +15,86 @@ npm install express-toastr
 
 ## Usage
 
-See `example/index.coffee`.
+Require express-toastr as a middleware:
+
+```javascript
+// ExpressJS
+var express = require('express')
+// Dependencies
+    ,flash = require('connect-flash')
+    ,session = require('express-session')
+    ,cookieParser = require('cookie-parser')
+// express-toastr
+    ,toastr = require('express-toastr');
+
+// Initialize ExpressJS
+var app = express();
+// Dependencies
+app.use(cookieParser('secret'));
+app.use(session({
+    secret: 'secret',
+    saveUninitialized: true,
+    resave: true
+});
+app.use(flash());
+
+// Load express-toastr
+app.use(toastr);
+```
+
+In your controller:
+
+```javascript
+if (err)
+{
+    req.toastr.error('Invalid credentials.');
+} else {
+    req.toastr.success('Successfully logged in.', "You're in!");
+}
+```
+
+In your view:
+
+```html
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/css/toastr.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+<%= req.toastr.render() %>
+```
+
+Alternatively, you can add a middleware as follows:
+
+```javascript
+app.use(function (req, res, next)
+{
+    res.locals.toasts = req.toastr.render()
+    next()
+});
+```
+
+and in your view:
+
+```html
+<!-- toastr.min.css, jquery.min.js, toastr.min.js -->
+<%= toasts %>
+```
+
+Also see `example/index.coffee`.
+
+### Available methods
+
+```javascript
+// Add an info toast
+req.toastr.info(message, title = '', options = {})
+// Add a warning toast
+req.toastr.warning(message, title = '', options = {})
+// Add an error toast
+req.toastr.error(message, title = '', options = {})
+// Add a success toast
+req.toastr.success(message, title = '', options = {})
+// Add a toast with a manually specified type
+req.toastr.add(type, message, title = '', options = {})
+```
 
 ## Testing
 
