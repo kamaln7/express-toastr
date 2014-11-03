@@ -19,6 +19,14 @@ app.get '/set', (req, res) ->
   # Return 200 OK
   res.end()
 
+app.get '/clear', (req, res) ->
+  req.toastr.error 'This is a toast!', 'Oh no!'
+  req.toastr.clear()
+  req.toastr.info 'The previous toasts were cleared.'
+
+  # Return 200 OK
+  res.end()
+
 app.get '/', (req, res) ->
   res.send req.toastr.render()
 

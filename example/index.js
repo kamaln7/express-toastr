@@ -38,6 +38,13 @@
     return res.end();
   });
 
+  app.get('/clear', function(req, res) {
+    req.toastr.error('This is a toast!', 'Oh no!');
+    req.toastr.clear();
+    req.toastr.info('The previous toasts were cleared.');
+    return res.end();
+  });
+
   app.get('/', function(req, res) {
     return res.send(req.toastr.render());
   });

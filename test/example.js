@@ -41,16 +41,17 @@
         return done();
       });
     });
-    it('should set toasts properly', function(done) {
+    it('should set toasts properly (1/2)', function(done) {
       return request(url).get('/set').expect(200).end(function(err, res) {
         if (err) {
           throw err;
         }
+        should(res.text).equal('');
         Cookies = res.headers['set-cookie'].pop().split(';')[0];
         return done();
       });
     });
-    return it('should show toasts properly', function(done) {
+    it('should set toasts properly (2/2)', function(done) {
       var req;
       req = request(url).get('/');
       req.cookies = Cookies;
@@ -59,6 +60,42 @@
           throw err;
         }
         should(res.text).equal("<script type=\"text/javascript\">toastr.options={};toastr.info('Are you the 6 fingered man&quest;');toastr.options={\"closeButton\":true};toastr.warning('My name is Inigo Montoya&period; You killed my father&comma; prepare to die&excl;');toastr.options={};toastr.success('Have fun storming the castle&excl;','Miracle Max Says');toastr.options={};toastr.error('I do not think that word means what you think it means&period;','Inconceivable&excl;');</script>");
+        return done();
+      });
+    });
+    it('should clear toasts that were viewed', function(done) {
+      var req;
+      req = request(url).get('/');
+      req.cookies = Cookies;
+      return req.expect(200).end(function(err, res) {
+        if (err) {
+          throw err;
+        }
+        should(res.text).equal('');
+        return done();
+      });
+    });
+    it('should clear toasts when .clear() is called (1/2)', function(done) {
+      var req;
+      req = request(url).get('/clear');
+      req.cookies = Cookies;
+      return req.expect(200).end(function(err, res) {
+        if (err) {
+          throw err;
+        }
+        should(res.text).equal('');
+        return done();
+      });
+    });
+    return it('should clear toasts when .clear() is called (2/2)', function(done) {
+      var req;
+      req = request(url).get('/');
+      req.cookies = Cookies;
+      return req.expect(200).end(function(err, res) {
+        if (err) {
+          throw err;
+        }
+        should(res.text).equal("<script type=\"text/javascript\">toastr.options={};toastr.info('The previous toasts were cleared&period;');</script>");
         return done();
       });
     });

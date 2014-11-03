@@ -94,6 +94,8 @@ req.toastr.error(message, title = '', options = {})
 req.toastr.success(message, title = '', options = {})
 // Add a toast with a manually specified type
 req.toastr.add(type, message, title = '', options = {})
+// Clear existing toasts
+req.toastr.clear()
 ```
 
 ## Testing
