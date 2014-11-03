@@ -39,6 +39,7 @@ app.use(session({
 app.use(flash());
 
 // Load express-toastr
+// You can pass an object of default options to toastr(), see example/index.coffee
 app.use(toastr());
 ```
 
