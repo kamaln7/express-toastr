@@ -10,7 +10,7 @@
 
   cookieParser = require('cookie-parser');
 
-  toastr = require('express-toastr');
+  toastr = require('../');
 
   app = express();
 
