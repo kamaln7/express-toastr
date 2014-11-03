@@ -2,7 +2,9 @@ express = require 'express'
 flash = require 'connect-flash'
 session = require 'express-session'
 cookieParser = require 'cookie-parser'
-toastr = require 'express-toastr'
+# This is so the latest version is loaded when running the tests
+# You should use: require 'express-toastr'
+toastr = require '../'
 
 app = express()
 app.use cookieParser 'secret'
