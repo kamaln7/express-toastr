@@ -1,6 +1,8 @@
 express-toastr
 ==============
 
+[![Build Status](https://travis-ci.org/kamaln7/express-toastr.svg?branch=master)](https://travis-ci.org/kamaln7/express-toastr)
+
 A toastr.js middleware for ExpressJS 4
 
 ## Installation
