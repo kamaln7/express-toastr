@@ -59,7 +59,7 @@
         if (err) {
           throw err;
         }
-        should(res.text).equal("<script type=\"text/javascript\">toastr.options={};toastr.info('Are you the 6 fingered man&quest;');toastr.options={\"closeButton\":true};toastr.warning('My name is Inigo Montoya&period; You killed my father&comma; prepare to die&excl;');toastr.options={};toastr.success('Have fun storming the castle&excl;','Miracle Max Says');toastr.options={};toastr.error('I do not think that word means what you think it means&period;','Inconceivable&excl;');</script>");
+        should(res.text).equal("<script type=\"text/javascript\">toastr.options={\"closeButton\":true};toastr.info('Are you the 6 fingered man&quest;');toastr.options={\"closeButton\":false};toastr.warning('My name is Inigo Montoya&period; You killed my father&comma; prepare to die&excl;');toastr.options={\"closeButton\":true};toastr.success('Have fun storming the castle&excl;','Miracle Max Says');toastr.error('I do not think that word means what you think it means&period;','Inconceivable&excl;');</script>");
         return done();
       });
     });
@@ -95,7 +95,7 @@
         if (err) {
           throw err;
         }
-        should(res.text).equal("<script type=\"text/javascript\">toastr.options={};toastr.info('The previous toasts were cleared&period;');</script>");
+        should(res.text).equal("<script type=\"text/javascript\">toastr.options={\"closeButton\":true};toastr.info('The previous toasts were cleared&period;');</script>");
         return done();
       });
     });

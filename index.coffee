@@ -1,4 +1,7 @@
 entities = require 'entities'
+_ = require 'lodash'
+
+_defaultOptions = {}
 
 _escape = (string) ->
   entities.encodeHTML(string).replace "'", "\\'"
@@ -23,10 +26,13 @@ render = (req) ->
   return unless toasts.length
 
   output = '<script type="text/javascript">'
+  previousOptions = {}
   for toast in toasts
-    output += "toastr.options=#{JSON.stringify toast.options};"
-    args = []
+    options = _.defaults toast.options, _defaultOptions
+    output += "toastr.options=#{JSON.stringify options};" unless _.isEqual previousOptions, options
+    previousOptions = options
 
+    args = []
     args.push _escape toast.message
     if toast.title then args.push _escape toast.title
 
@@ -36,17 +42,20 @@ render = (req) ->
 
   output
 
-module.exports = (req, res, next) ->
-  # Initialize toasts as an empty array
-  req._toasts = []
+module.exports = (options = {}) ->
+  _defaultOptions = options
 
-  req.toastr =
-    add: add.bind null, req
-    info: -> @add 'info', arguments...
-    warning: -> @add 'warning', arguments...
-    error: -> @add 'error', arguments...
-    success: -> @add 'success', arguments...
-    clear: clear.bind null, req
-    render: render.bind null, req
+  (req, res, next) ->
+    # Initialize toasts as an empty array
+    req._toasts = []
 
-  next()
+    req.toastr =
+      add: add.bind null, req
+      info: -> @add 'info', arguments...
+      warning: -> @add 'warning', arguments...
+      error: -> @add 'error', arguments...
+      success: -> @add 'success', arguments...
+      clear: clear.bind null, req
+      render: render.bind null, req
+
+    next()

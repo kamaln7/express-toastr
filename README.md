@@ -39,7 +39,7 @@ app.use(session({
 app.use(flash());
 
 // Load express-toastr
-app.use(toastr);
+app.use(toastr());
 ```
 
 In your controller:

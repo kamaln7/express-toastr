@@ -24,12 +24,14 @@
 
   app.use(flash());
 
-  app.use(toastr);
+  app.use(toastr({
+    closeButton: true
+  }));
 
   app.get('/set', function(req, res) {
     req.toastr.info('Are you the 6 fingered man?');
     req.toastr.warning('My name is Inigo Montoya. You killed my father, prepare to die!', null, {
-      closeButton: true
+      closeButton: false
     });
     req.toastr.success('Have fun storming the castle!', 'Miracle Max Says', null, {
       newestOnTop: true

@@ -29,7 +29,8 @@
   },
   "homepage": "https://github.com/kamaln7/express-toastr",
   "dependencies": {
-    "entities": "^1.1.1"
+    "entities": "^1.1.1",
+    "lodash": "^2.4.1"
   },
   "devDependencies": {
     "assert": "^1.1.2",
