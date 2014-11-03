@@ -1,0 +1,41 @@
+{
+  "name": "express-toastr",
+  "version": "1.0.0",
+  "description": "A toastr.js middleware for ExpressJS 4",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kamaln7/express-toastr.git"
+  },
+  "keywords": [
+    "expressjs",
+    "express",
+    "connect",
+    "flash",
+    "toastr",
+    "toast",
+    "popup"
+  ],
+  "author": {
+    "name": "Kamal Nasser",
+    "email": "hello@kamal.io"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kamaln7/express-toastr/issues"
+  },
+  "homepage": "https://github.com/kamaln7/express-toastr",
+  "dependencies": {
+    "entities": "^1.1.1"
+  },
+  "devDependencies": {
+    "assert": "^1.1.2",
+    "mocha": "^2.0.1",
+    "should": "^4.1.0",
+    "supertest": "^0.14.0",
+    "supertest-session": "0.0.5"
+  }
+}
