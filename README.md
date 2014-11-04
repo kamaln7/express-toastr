@@ -1,7 +1,7 @@
 express-toastr
 ==============
 
-Build Status: [![wercker status](https://app.wercker.com/status/784ad6f1bbeceac5ccc21784e855912d/s/master "wercker status")](https://app.wercker.com/project/bykey/784ad6f1bbeceac5ccc21784e855912d)
+[![wercker status](https://app.wercker.com/status/784ad6f1bbeceac5ccc21784e855912d/s/master "wercker status")](https://app.wercker.com/project/bykey/784ad6f1bbeceac5ccc21784e855912d)
 
 A toastr.js middleware for ExpressJS 4
 
@@ -107,7 +107,7 @@ req.toastr.clear()
 
 ## Testing
 
-Run `npm test` to run the test suite.
+Run `npm test` to run the test suite or view the current test status [here](https://app.wercker.com/#applications/54590b5fec3d76d936000c19).
 
 ## License
 
