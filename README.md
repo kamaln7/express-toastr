@@ -1,7 +1,7 @@
 express-toastr
 ==============
 
-[![build status](https://app.wercker.com/status/784ad6f1bbeceac5ccc21784e855912d/m "build status")](https://app.wercker.com/project/bykey/784ad6f1bbeceac5ccc21784e855912d)
+Build Status: [![wercker status](https://app.wercker.com/status/784ad6f1bbeceac5ccc21784e855912d/s/master "wercker status")](https://app.wercker.com/project/bykey/784ad6f1bbeceac5ccc21784e855912d)
 
 A toastr.js middleware for ExpressJS 4
 
@@ -13,7 +13,7 @@ npm install express-toastr
 
 ## Requirements
 
-`express-toastr` depends on connect-flash, express-session, and cookie-parser -- see `example/index.coffee`.
+`express-toastr` depends on `connect-flash`, `express-session`, and `cookie-parser` -- see the Usage section below.
 
 ## Usage
 
@@ -54,6 +54,10 @@ if (err)
 } else {
     req.toastr.success('Successfully logged in.', "You're in!");
 }
+
+//...
+
+res.render('viewName', {req: req});
 ```
 
 In your view:
