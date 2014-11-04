@@ -1,7 +1,7 @@
 express-toastr
 ==============
 
-[![Build Status](https://travis-ci.org/kamaln7/express-toastr.svg?branch=master)](https://travis-ci.org/kamaln7/express-toastr)
+[![build status](https://app.wercker.com/status/784ad6f1bbeceac5ccc21784e855912d/m "build status")](https://app.wercker.com/project/bykey/784ad6f1bbeceac5ccc21784e855912d)
 
 A toastr.js middleware for ExpressJS 4
 
