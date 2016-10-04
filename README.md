@@ -66,7 +66,7 @@ In your view:
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/css/toastr.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
-<%= req.toastr.render() %>
+<%- req.toastr.render() %>
 ```
 
 Alternatively, you can add a middleware as follows:
@@ -83,7 +83,7 @@ and in your view:
 
 ```html
 <!-- toastr.min.css, jquery.min.js, toastr.min.js -->
-<%= toasts %>
+<%- toasts %>
 ```
 
 Also see `example/index.coffee`.
